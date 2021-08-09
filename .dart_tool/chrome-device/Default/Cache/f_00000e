@@ -1,0 +1,455 @@
+define(['dart_sdk', 'packages/flutter/src/painting/basic_types.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/firebase_database/firebase_database.dart', 'packages/flutter/src/animation/listener_helpers.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/widgets/animated_list.dart', 'packages/firebase_database/ui/firebase_sorted_list.dart', 'packages/firebase_database/ui/firebase_list.dart'], (function load__packages__firebase_database__ui__firebase_animated_list_dart(dart_sdk, packages__flutter__src__painting__basic_types$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__firebase_database__firebase_database$46dart, packages__flutter__src__animation__listener_helpers$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__widgets__animated_list$46dart, packages__firebase_database__ui__firebase_sorted_list$46dart, packages__firebase_database__ui__firebase_list$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const _internal = dart_sdk._internal;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const basic_types = packages__flutter__src__painting__basic_types$46dart.src__painting__basic_types;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const scroll_controller = packages__flutter__src__widgets__widget_span$46dart.src__widgets__scroll_controller;
+  const scroll_physics = packages__flutter__src__widgets__widget_span$46dart.src__widgets__scroll_physics;
+  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const firebase_database = packages__firebase_database__firebase_database$46dart.firebase_database;
+  const animation = packages__flutter__src__animation__listener_helpers$46dart.src__animation__animation;
+  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
+  const animated_list = packages__flutter__src__widgets__animated_list$46dart.src__widgets__animated_list;
+  const firebase_sorted_list = packages__firebase_database__ui__firebase_sorted_list$46dart.ui__firebase_sorted_list;
+  const firebase_list = packages__firebase_database__ui__firebase_list$46dart.ui__firebase_list;
+  var firebase_animated_list = Object.create(dart.library);
+  var $clear = dartx.clear;
+  var $length = dartx.length;
+  var $_get = dartx._get;
+  dart._checkModuleNullSafetyMode(true);
+  var T = {
+    GlobalKeyOfAnimatedListState: () => (T.GlobalKeyOfAnimatedListState = dart.constFn(framework.GlobalKey$(animated_list.AnimatedListState)))(),
+    AnimationOfdouble: () => (T.AnimationOfdouble = dart.constFn(animation.Animation$(core.double)))(),
+    BuildContextAndAnimationOfdoubleToWidget: () => (T.BuildContextAndAnimationOfdoubleToWidget = dart.constFn(dart.fnType(framework.Widget, [framework.BuildContext, T.AnimationOfdouble()])))(),
+    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))()
+  };
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: basic_types.Axis.prototype,
+        [_name]: "Axis.vertical",
+        index: 1
+      });
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: core.Duration.prototype,
+        [Duration__duration]: 300000
+      });
+    },
+    get C3() {
+      return C[3] = dart.constList([], widget_inspector._Location);
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[3] || CT.C3,
+        [_Location_name]: null,
+        [_Location_column]: 37,
+        [_Location_line]: 213,
+        [_Location_file]: "file:///C:/s/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_database-7.1.2/lib/ui/firebase_animated_list.dart"
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "key",
+        [_Location_column]: 7,
+        [_Location_line]: 216,
+        [_Location_file]: null
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "itemBuilder",
+        [_Location_column]: 7,
+        [_Location_line]: 217,
+        [_Location_file]: null
+      });
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "initialItemCount",
+        [_Location_column]: 7,
+        [_Location_line]: 218,
+        [_Location_file]: null
+      });
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "scrollDirection",
+        [_Location_column]: 7,
+        [_Location_line]: 219,
+        [_Location_file]: null
+      });
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "reverse",
+        [_Location_column]: 7,
+        [_Location_line]: 220,
+        [_Location_file]: null
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "controller",
+        [_Location_column]: 7,
+        [_Location_line]: 221,
+        [_Location_file]: null
+      });
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "primary",
+        [_Location_column]: 7,
+        [_Location_line]: 222,
+        [_Location_file]: null
+      });
+    },
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "physics",
+        [_Location_column]: 7,
+        [_Location_line]: 223,
+        [_Location_file]: null
+      });
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "shrinkWrap",
+        [_Location_column]: 7,
+        [_Location_line]: 224,
+        [_Location_file]: null
+      });
+    },
+    get C15() {
+      return C[15] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 7,
+        [_Location_line]: 225,
+        [_Location_file]: null
+      });
+    },
+    get C5() {
+      return C[5] = dart.constList([C[6] || CT.C6, C[7] || CT.C7, C[8] || CT.C8, C[9] || CT.C9, C[10] || CT.C10, C[11] || CT.C11, C[12] || CT.C12, C[13] || CT.C13, C[14] || CT.C14, C[15] || CT.C15], widget_inspector._Location);
+    },
+    get C4() {
+      return C[4] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[5] || CT.C5,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 215,
+        [_Location_file]: "file:///C:/s/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_database-7.1.2/lib/ui/firebase_animated_list.dart"
+      });
+    }
+  }, false);
+  var C = Array(16).fill(void 0);
+  var I = [
+    "package:firebase_database/ui/firebase_animated_list.dart",
+    "file:///C:/s/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_database-7.1.2/lib/ui/firebase_animated_list.dart"
+  ];
+  var query$ = dart.privateName(firebase_animated_list, "FirebaseAnimatedList.query");
+  var sort$ = dart.privateName(firebase_animated_list, "FirebaseAnimatedList.sort");
+  var defaultChild$ = dart.privateName(firebase_animated_list, "FirebaseAnimatedList.defaultChild");
+  var itemBuilder$ = dart.privateName(firebase_animated_list, "FirebaseAnimatedList.itemBuilder");
+  var scrollDirection$ = dart.privateName(firebase_animated_list, "FirebaseAnimatedList.scrollDirection");
+  var reverse$ = dart.privateName(firebase_animated_list, "FirebaseAnimatedList.reverse");
+  var controller$ = dart.privateName(firebase_animated_list, "FirebaseAnimatedList.controller");
+  var primary$ = dart.privateName(firebase_animated_list, "FirebaseAnimatedList.primary");
+  var physics$ = dart.privateName(firebase_animated_list, "FirebaseAnimatedList.physics");
+  var shrinkWrap$ = dart.privateName(firebase_animated_list, "FirebaseAnimatedList.shrinkWrap");
+  var padding$ = dart.privateName(firebase_animated_list, "FirebaseAnimatedList.padding");
+  var duration$ = dart.privateName(firebase_animated_list, "FirebaseAnimatedList.duration");
+  var _name = dart.privateName(basic_types, "_name");
+  var Duration__duration = dart.privateName(core, "Duration._duration");
+  firebase_animated_list.FirebaseAnimatedList = class FirebaseAnimatedList extends framework.StatefulWidget {
+    get query() {
+      return this[query$];
+    }
+    set query(value) {
+      super.query = value;
+    }
+    get sort() {
+      return this[sort$];
+    }
+    set sort(value) {
+      super.sort = value;
+    }
+    get defaultChild() {
+      return this[defaultChild$];
+    }
+    set defaultChild(value) {
+      super.defaultChild = value;
+    }
+    get itemBuilder() {
+      return this[itemBuilder$];
+    }
+    set itemBuilder(value) {
+      super.itemBuilder = value;
+    }
+    get scrollDirection() {
+      return this[scrollDirection$];
+    }
+    set scrollDirection(value) {
+      super.scrollDirection = value;
+    }
+    get reverse() {
+      return this[reverse$];
+    }
+    set reverse(value) {
+      super.reverse = value;
+    }
+    get controller() {
+      return this[controller$];
+    }
+    set controller(value) {
+      super.controller = value;
+    }
+    get primary() {
+      return this[primary$];
+    }
+    set primary(value) {
+      super.primary = value;
+    }
+    get physics() {
+      return this[physics$];
+    }
+    set physics(value) {
+      super.physics = value;
+    }
+    get shrinkWrap() {
+      return this[shrinkWrap$];
+    }
+    set shrinkWrap(value) {
+      super.shrinkWrap = value;
+    }
+    get padding() {
+      return this[padding$];
+    }
+    set padding(value) {
+      super.padding = value;
+    }
+    get duration() {
+      return this[duration$];
+    }
+    set duration(value) {
+      super.duration = value;
+    }
+    createState() {
+      return new firebase_animated_list.FirebaseAnimatedListState.new();
+    }
+  };
+  (firebase_animated_list.FirebaseAnimatedList.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let query = opts && 'query' in opts ? opts.query : null;
+    let itemBuilder = opts && 'itemBuilder' in opts ? opts.itemBuilder : null;
+    let sort = opts && 'sort' in opts ? opts.sort : null;
+    let defaultChild = opts && 'defaultChild' in opts ? opts.defaultChild : null;
+    let scrollDirection = opts && 'scrollDirection' in opts ? opts.scrollDirection : C[0] || CT.C0;
+    let reverse = opts && 'reverse' in opts ? opts.reverse : false;
+    let controller = opts && 'controller' in opts ? opts.controller : null;
+    let primary = opts && 'primary' in opts ? opts.primary : null;
+    let physics = opts && 'physics' in opts ? opts.physics : null;
+    let shrinkWrap = opts && 'shrinkWrap' in opts ? opts.shrinkWrap : false;
+    let padding = opts && 'padding' in opts ? opts.padding : null;
+    let duration = opts && 'duration' in opts ? opts.duration : C[1] || CT.C1;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[query$] = query;
+    this[itemBuilder$] = itemBuilder;
+    this[sort$] = sort;
+    this[defaultChild$] = defaultChild;
+    this[scrollDirection$] = scrollDirection;
+    this[reverse$] = reverse;
+    this[controller$] = controller;
+    this[primary$] = primary;
+    this[physics$] = physics;
+    this[shrinkWrap$] = shrinkWrap;
+    this[padding$] = padding;
+    this[duration$] = duration;
+    firebase_animated_list.FirebaseAnimatedList.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = firebase_animated_list.FirebaseAnimatedList.prototype;
+  dart.addTypeTests(firebase_animated_list.FirebaseAnimatedList);
+  dart.addTypeCaches(firebase_animated_list.FirebaseAnimatedList);
+  dart.setMethodSignature(firebase_animated_list.FirebaseAnimatedList, () => ({
+    __proto__: dart.getMethods(firebase_animated_list.FirebaseAnimatedList.__proto__),
+    createState: dart.fnType(firebase_animated_list.FirebaseAnimatedListState, [])
+  }));
+  dart.setLibraryUri(firebase_animated_list.FirebaseAnimatedList, I[0]);
+  dart.setFieldSignature(firebase_animated_list.FirebaseAnimatedList, () => ({
+    __proto__: dart.getFields(firebase_animated_list.FirebaseAnimatedList.__proto__),
+    query: dart.finalFieldType(firebase_database.Query),
+    sort: dart.finalFieldType(dart.nullable(dart.fnType(core.int, [firebase_database.DataSnapshot, firebase_database.DataSnapshot]))),
+    defaultChild: dart.finalFieldType(dart.nullable(framework.Widget)),
+    itemBuilder: dart.finalFieldType(dart.fnType(framework.Widget, [framework.BuildContext, firebase_database.DataSnapshot, animation.Animation$(core.double), core.int])),
+    scrollDirection: dart.finalFieldType(basic_types.Axis),
+    reverse: dart.finalFieldType(core.bool),
+    controller: dart.finalFieldType(dart.nullable(scroll_controller.ScrollController)),
+    primary: dart.finalFieldType(dart.nullable(core.bool)),
+    physics: dart.finalFieldType(dart.nullable(scroll_physics.ScrollPhysics)),
+    shrinkWrap: dart.finalFieldType(core.bool),
+    padding: dart.finalFieldType(dart.nullable(edge_insets.EdgeInsets)),
+    duration: dart.finalFieldType(core.Duration)
+  }));
+  var _animatedListKey = dart.privateName(firebase_animated_list, "_animatedListKey");
+  var __FirebaseAnimatedListState__model = dart.privateName(firebase_animated_list, "_#FirebaseAnimatedListState#_model");
+  var _loaded = dart.privateName(firebase_animated_list, "_loaded");
+  var _model = dart.privateName(firebase_animated_list, "_model");
+  var _onChildAdded = dart.privateName(firebase_animated_list, "_onChildAdded");
+  var _onChildRemoved = dart.privateName(firebase_animated_list, "_onChildRemoved");
+  var _onChildChanged = dart.privateName(firebase_animated_list, "_onChildChanged");
+  var _onValue = dart.privateName(firebase_animated_list, "_onValue");
+  var _onChildMoved = dart.privateName(firebase_animated_list, "_onChildMoved");
+  var _buildItem = dart.privateName(firebase_animated_list, "_buildItem");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  firebase_animated_list.FirebaseAnimatedListState = class FirebaseAnimatedListState extends framework.State$(firebase_animated_list.FirebaseAnimatedList) {
+    get [_model]() {
+      let t0;
+      t0 = this[__FirebaseAnimatedListState__model];
+      return t0 == null ? dart.throw(new _internal.LateError.fieldNI("_model")) : t0;
+    }
+    set [_model](t0) {
+      this[__FirebaseAnimatedListState__model] = t0;
+    }
+    didChangeDependencies() {
+      if (this.widget.sort != null) {
+        this[_model] = new firebase_sorted_list.FirebaseSortedList.new({query: this.widget.query, comparator: dart.nullCheck(this.widget.sort), onChildAdded: dart.bind(this, _onChildAdded), onChildRemoved: dart.bind(this, _onChildRemoved), onChildChanged: dart.bind(this, _onChildChanged), onValue: dart.bind(this, _onValue)});
+      } else {
+        this[_model] = new firebase_list.FirebaseList.new({query: this.widget.query, onChildAdded: dart.bind(this, _onChildAdded), onChildRemoved: dart.bind(this, _onChildRemoved), onChildChanged: dart.bind(this, _onChildChanged), onChildMoved: dart.bind(this, _onChildMoved), onValue: dart.bind(this, _onValue)});
+      }
+      super.didChangeDependencies();
+    }
+    dispose() {
+      this[_model][$clear]();
+      super.dispose();
+    }
+    [_onChildAdded](index, snapshot) {
+      let t1;
+      if (!this[_loaded]) {
+        return;
+      }
+      t1 = this[_animatedListKey].currentState;
+      t1 == null ? null : t1.insertItem(index, {duration: this.widget.duration});
+    }
+    [_onChildRemoved](index, snapshot) {
+      let t1;
+      if (!(index >= this[_model][$length] || this[_model][$_get](index).key != snapshot.key)) dart.assertFailed(null, I[1], 179, 12, "index >= _model.length || _model[index].key != snapshot.key");
+      t1 = this[_animatedListKey].currentState;
+      t1 == null ? null : t1.removeItem(index, dart.fn((context, animation) => {
+        let t6, t5, t4, t3, t2;
+        t2 = this.widget;
+        t3 = context;
+        t4 = snapshot;
+        t5 = animation;
+        t6 = index;
+        return t2.itemBuilder(t3, t4, t5, t6);
+      }, T.BuildContextAndAnimationOfdoubleToWidget()), {duration: this.widget.duration});
+    }
+    [_onChildChanged](index, snapshot) {
+      this.setState(dart.fn(() => {
+      }, T.VoidTovoid()));
+    }
+    [_onChildMoved](fromIndex, toIndex, snapshot) {
+      this.setState(dart.fn(() => {
+      }, T.VoidTovoid()));
+    }
+    [_onValue](_) {
+      this.setState(dart.fn(() => {
+        this[_loaded] = true;
+      }, T.VoidTovoid()));
+    }
+    [_buildItem](context, index, animation) {
+      let t5, t4, t3, t2, t1;
+      t1 = this.widget;
+      t2 = context;
+      t3 = this[_model][$_get](index);
+      t4 = animation;
+      t5 = index;
+      return t1.itemBuilder(t2, t3, t4, t5);
+    }
+    build(context) {
+      let t1;
+      if (!this[_loaded]) {
+        t1 = this.widget.defaultChild;
+        return t1 == null ? new container.Container.new({$creationLocationd_0dea112b090073317d4: C[2] || CT.C2}) : t1;
+      }
+      return new animated_list.AnimatedList.new({key: this[_animatedListKey], itemBuilder: dart.bind(this, _buildItem), initialItemCount: this[_model][$length], scrollDirection: this.widget.scrollDirection, reverse: this.widget.reverse, controller: this.widget.controller, primary: this.widget.primary, physics: this.widget.physics, shrinkWrap: this.widget.shrinkWrap, padding: this.widget.padding, $creationLocationd_0dea112b090073317d4: C[4] || CT.C4});
+    }
+  };
+  (firebase_animated_list.FirebaseAnimatedListState.new = function() {
+    this[_animatedListKey] = T.GlobalKeyOfAnimatedListState().new();
+    this[__FirebaseAnimatedListState__model] = null;
+    this[_loaded] = false;
+    firebase_animated_list.FirebaseAnimatedListState.__proto__.new.call(this);
+    ;
+  }).prototype = firebase_animated_list.FirebaseAnimatedListState.prototype;
+  dart.addTypeTests(firebase_animated_list.FirebaseAnimatedListState);
+  dart.addTypeCaches(firebase_animated_list.FirebaseAnimatedListState);
+  dart.setMethodSignature(firebase_animated_list.FirebaseAnimatedListState, () => ({
+    __proto__: dart.getMethods(firebase_animated_list.FirebaseAnimatedListState.__proto__),
+    [_onChildAdded]: dart.fnType(dart.void, [core.int, firebase_database.DataSnapshot]),
+    [_onChildRemoved]: dart.fnType(dart.void, [core.int, firebase_database.DataSnapshot]),
+    [_onChildChanged]: dart.fnType(dart.void, [core.int, firebase_database.DataSnapshot]),
+    [_onChildMoved]: dart.fnType(dart.void, [core.int, core.int, firebase_database.DataSnapshot]),
+    [_onValue]: dart.fnType(dart.void, [firebase_database.DataSnapshot]),
+    [_buildItem]: dart.fnType(framework.Widget, [framework.BuildContext, core.int, animation.Animation$(core.double)]),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setGetterSignature(firebase_animated_list.FirebaseAnimatedListState, () => ({
+    __proto__: dart.getGetters(firebase_animated_list.FirebaseAnimatedListState.__proto__),
+    [_model]: core.List$(firebase_database.DataSnapshot)
+  }));
+  dart.setSetterSignature(firebase_animated_list.FirebaseAnimatedListState, () => ({
+    __proto__: dart.getSetters(firebase_animated_list.FirebaseAnimatedListState.__proto__),
+    [_model]: core.List$(firebase_database.DataSnapshot)
+  }));
+  dart.setLibraryUri(firebase_animated_list.FirebaseAnimatedListState, I[0]);
+  dart.setFieldSignature(firebase_animated_list.FirebaseAnimatedListState, () => ({
+    __proto__: dart.getFields(firebase_animated_list.FirebaseAnimatedListState.__proto__),
+    [_animatedListKey]: dart.finalFieldType(framework.GlobalKey$(animated_list.AnimatedListState)),
+    [__FirebaseAnimatedListState__model]: dart.fieldType(dart.nullable(core.List$(firebase_database.DataSnapshot))),
+    [_loaded]: dart.fieldType(core.bool)
+  }));
+  dart.trackLibraries("packages/firebase_database/ui/firebase_animated_list.dart", {
+    "package:firebase_database/ui/firebase_animated_list.dart": firebase_animated_list
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["firebase_animated_list.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAsCc;;;;;;IAKoB;;;;;;IAIlB;;;;;;IAWwB;;;;;;IAK3B;;;;;;IAcA;;;;;;IAMa;;;;;;IAUZ;;;;;;IAQS;;;;;;IAgBV;;;;;;IAGO;;;;;;IAKH;;;;;;;AAG4B;IAA2B;;;QA1G/D;QACS;QACA;QACT;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;QACA;;IAXS;IACA;IACT;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;AACF,+EAAW,GAAG;;EAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAmGI;;IAAM;;AAAN;IAAM;;AAK5B,UAAI,AAAO;AAQR,QAPD,eAAS,wDACA,AAAO,+BACS,eAAX,AAAO,2CACL,gDACE,kDACA,2CACP;;AAUV,QAPD,eAAS,2CACA,AAAO,2CACA,gDACE,kDACA,gDACF,yCACL;;AAGgB,MAAvB;IACR;;AAKgB,MAAd,AAAO;AAEQ,MAAT;IACR;oBAEuB,OAAoB;;AACzC,WAAK;AACH;;AAEyE,WAA3E,AAAiB;mBAAA,OAAc,cAAW,KAAK,aAAY,AAAO;IACpE;sBAEyB,OAAoB;;AAE3C,YAAO,AAAM,AAAiB,KAAlB,IAAI,AAAO,yBAAU,AAAM,AAAQ,oBAAP,KAAK,SAAS,AAAS,QAAD;AAO7D,WAND,AAAiB;mBAAA,OAAc,cAC7B,KAAK,EACL,SAAc,SAA2B;;AACvC,aAAO;aAAmB,OAAO;aAAE,QAAQ;aAAE,SAAS;aAAE,KAAK;cAApC;mEAEjB,AAAO;IAErB;sBAGyB,OAAoB;AAC5B,MAAf,cAAS;;IACX;oBAGuB,WAAe,SAAsB;AAC3C,MAAf,cAAS;;IACX;eAE2B;AAGvB,MAFF,cAAS;AACO,QAAd,gBAAU;;IAEd;iBAGiB,SAAa,OAAyB;;AACrD,WAAO;WAAmB,OAAO;WAAE,AAAM,oBAAC,KAAK;WAAG,SAAS;WAAE,KAAK;YAAzC;IAC3B;UAG0B;;AACxB,WAAK;AACH,aAAO,AAAO;cAAA,cAAgB;;AAEhC,YAAO,0CACA,+CACQ,qCACK,AAAO,wCACR,AAAO,sCACf,AAAO,iCACJ,AAAO,iCACV,AAAO,8BACP,AAAO,iCACJ,AAAO,iCACV,AAAO;IAEpB;;;IA9FmC,yBAC/B;+CACoB;IACnB,gBAAU;;;EA4FjB","file":"../../../../../../../../../D:/packages/firebase_database/ui/firebase_animated_list.dart.lib.js"}');
+  // Exports:
+  return {
+    ui__firebase_animated_list: firebase_animated_list
+  };
+}));
+
+//# sourceMappingURL=firebase_animated_list.dart.lib.js.map
